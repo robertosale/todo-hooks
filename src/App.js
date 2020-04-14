@@ -1,23 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Form from './components/Form'
+import TaskContainer from './components/TaskContainer'
+import {TextField, Button, Box} from '@material-ui/core/';
 
 function App() {
+  const [taskApp, setTaskApp]=useState([]);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <Box mt={10}>
+        <Form taskApp = {taskApp} setTaskApp = {setTaskApp}/>
+      </Box>
+
+      <Box>
+        <TaskContainer taskApp={taskApp}/>
+      </Box>
+      
+      
+        
+
+        
       </header>
     </div>
   );
